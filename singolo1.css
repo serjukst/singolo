@@ -153,7 +153,8 @@ body {
 .services-content__item {
     display: flex;
     width: 300px;
-    margin-bottom: 30px;
+    height: 85px;
+    margin-bottom: 37px;
 }
 
 .item-img {
@@ -176,7 +177,7 @@ body {
     font-size: 18px;
     line-height: 18px;
     font-weight: 900;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .item-discription {

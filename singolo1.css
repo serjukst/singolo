@@ -92,6 +92,29 @@ body {
     color: #a3494a;
 }
 
+.slider-vertical-image {
+    width: 240px;
+    height: 483px;
+    position: relative;
+}
+.slider-vertical-image img {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    
+}
+
+.slider-horizontal-image {
+    width: 483px;
+    height: 240px;
+    position: relative;
+}
+.slider-horizontal-image img {
+    position: absolute;
+    bottom: 3px;
+    left: 5px;
+    
+}
 /* <=== / Slider ===> */
 
 /* <=== Services ===> */

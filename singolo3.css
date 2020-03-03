@@ -1,0 +1,19 @@
+/* import */
+@import "fonts.css";
+
+/* <=== Common ===>*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1020px;
+    margin: 0 auto;
+    font-family: 'Lato', sans-serif;
+}
+
+/* <=== /Common ===>*/
+
+/* <=== Portfolio ===> */

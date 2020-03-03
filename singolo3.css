@@ -20,23 +20,26 @@ body {
 
 .form {
     height: 650px;
+    padding-top: 67px;
     background-color: #f06c64;
+    border-bottom: 6px solid #ea676b;
 }
 
 .wrapper {
-    padding: 65px 40px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-.form_content h1 {
-    padding-bottom: 30px;
+.form_content__title {
+    padding-bottom: 28px;
     font-size: 30px;
     line-height: 18px;
     color: #f0d8d9;
     font-weight: 900;
 }
 
-.form_content p {
-    padding-bottom: 48px;
+.form_content__text {
+    padding-bottom: 43px;
     text-align: justify;
     font-size: 18px;
     line-height: 30px;
@@ -50,6 +53,127 @@ body {
 
 .contact__form {
     width: 66%;
+    margin-right: 10px;
 }
+
+.contact_input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6564f;
+    outline: none;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #f0d8d9;
+    font-weight: 300;
+}
+
+.contact_input::placeholder {
+    font-size: 12px;
+    line-height: 22px;
+    color: #f48c8f;
+    font-weight: 400;
+}
+
+.textarea {
+    height: 200px;
+    padding-top: 8px;
+    resize: none;
+    font-family: "Lato";
+}
+
+.submit {
+    padding: 0;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+.contact__content {
+    width: 33%;
+    padding-left: 10px;
+}
+
+.contact__content__title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #f0d8d9;
+    font-weight: 900;
+}
+
+.contact__content__discription {
+    font-size: 12px;
+    line-height: 22px;
+    color: #f0d8d9;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.contact__item {
+    display: block;
+}
+
+.contact__content__discription p {
+    margin-bottom: 20px;
+}
+
+.icon {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-right: 10px;
+}
+
+.ico-location {
+    background: center no-repeat url(/assets/img/icon/location.png);
+}
+
+.ico-tel {
+    background: center no-repeat url(/assets/img/icon/phone.png);
+}
+
+.ico-email {
+    background: center no-repeat url(/assets/img/icon/mail.png);
+}
+
+.contact__item a {
+    text-decoration: none;
+    color: #f0d8d9;
+}
+
 /* <=== / Contact ===> */
 
+/* <=== Footer ===> */
+.footer {
+    background-color: #2d303a;
+
+}
+
+.footer-inner {
+    display: flex;
+    height: 76px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    padding-top: 4px;
+    padding-left: 3px;
+    color: #666d89;
+    font-size: 12px;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.ico {
+    margin-left: 1px;
+}
+/* <=== / Footer ===> */

@@ -16,4 +16,40 @@ body {
 
 /* <=== /Common ===>*/
 
-/* <=== Portfolio ===> */
+/* <=== Contact ===> */
+
+.form {
+    height: 650px;
+    background-color: #f06c64;
+}
+
+.wrapper {
+    padding: 65px 40px;
+}
+
+.form_content h1 {
+    padding-bottom: 30px;
+    font-size: 30px;
+    line-height: 18px;
+    color: #f0d8d9;
+    font-weight: 900;
+}
+
+.form_content p {
+    padding-bottom: 48px;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 30px;
+    color: #f0d8d9;
+    font-weight: 300;
+}
+
+.layout-2-column {
+    display: flex;
+}
+
+.contact__form {
+    width: 66%;
+}
+/* <=== / Contact ===> */
+

@@ -8,28 +8,32 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 10px;
+}
+
 body {
-    max-width: 1020px;
     margin: 0 auto;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', Verdana, sans-serif;
+    font-size: 1.6rem;
 }
 
 .wrapper {
+    max-width: 940px;
+    margin: 0 auto;
     padding-top: 67px;
-    padding-left: 40px;
-    padding-right: 40px;
 }
 
-h1, h2 {
-    font-size: 30px;
-    line-height: 18px;
+h2 {
+    font-size: 3rem;
+    line-height: 1.8rem;
     font-weight: 900;
     color: #666d89;
 }
 
 h3 {
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
     color: #666d89;
     font-weight: 900;
 }
@@ -40,16 +44,16 @@ a {
 }
 
 .text {
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 1.8rem;
+    line-height: 3rem;
     font-weight: 300;
     text-align: justify;
     color: #767e9e;
 }
 
 .item_description {
-    font-size: 12px;
-    line-height: 22px;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
     font-weight: 400;
     text-align: justify;
     color: #767e9e;
@@ -65,20 +69,20 @@ a {
 
 .header {
     background: #2d303a;
+    border-bottom: 6px solid #323746;
 }
 
 .header__wrapper {
+    height: 89px;
     padding-top: 0;
-    height: 96px;
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
     color: #fff;
-    border-bottom: 6px solid #323746;
 }
 .header__logo {
     align-self: center;
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 700;
 }
 
@@ -88,6 +92,7 @@ a {
 }
 
 .header__navigation {
+    padding-top: 3px;
     display: flex;
     flex-basis: 370px;
     justify-content: space-between;
@@ -95,15 +100,13 @@ a {
 }
 
 .nav-link {
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
 .header__navigation_item:not(:last-child):after {
-    content: '.';
-    position: relative;
-    bottom: 3px;
-    left: 12px;
+    content: '\2219';
+    margin-left: 12px;
     color: #494e62;
 }
 
@@ -119,15 +122,15 @@ a {
 
 .slider {
     background-color: #f06c64;
+    border-bottom: 6px solid #ea676b;
 }
 
 .slider__wrapper {
+    height: 594px;
     padding-top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 600px;
-    border-bottom: 6px solid #ea676b;
 }
 
 .chevron {
@@ -183,7 +186,7 @@ a {
 }
 
 .services__description__title {
-    margin-bottom: 25px;
+    margin-bottom: 27px;
 }
 
 .services__description__text {
@@ -227,7 +230,7 @@ a {
 
 /* <=== Portfolio ===> */
 .portfolio {
-    height: 870px;
+    height: 869px;
     background-color: #2d303a;
     border-bottom: 6px solid #323746;
 }
@@ -256,7 +259,7 @@ a {
     padding-left: 7px;
     padding-right: 6px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 20px;
     font-weight: 400;
     border: 1px solid #666d89;
@@ -279,6 +282,7 @@ a {
 .portfolio__project {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
     justify-content: space-between;
 }
 
@@ -297,13 +301,13 @@ a {
 /* <=== About us ===> */
 
 .about-us {
-    height: 732px;
+    height: 734px;
     background-color: #f2f2f2;
     border-bottom: 6px solid #fff;
 }
 
 .about-us__title {
-    margin-bottom: 25px;
+    margin-bottom: 27px;
 }
 
 .about-us__description {
@@ -328,6 +332,9 @@ a {
 .about-us__item h3 {
     margin-top: 15px;
     margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .about-us__item p {
@@ -343,7 +350,7 @@ a {
 /* <=== Contact ===> */
 
 .form {
-    height: 655px;
+    height: 654px;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
 }
@@ -378,19 +385,22 @@ a {
     background-color: #d6564f;
     outline: none;
     padding: 15px;
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 30px;
     color: #f0d8d9;
     font-weight: 300;
 }
 
 .contact_input::placeholder {
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 22px;
     color: #f48c8f;
     font-weight: 400;
 }
 
+.contact_input:required:invalid {
+    border: 2px solid #f48c8f;
+}
 .textarea {
     height: 200px;
     padding-top: 8px;
@@ -400,7 +410,7 @@ a {
 
 .submit {
     padding: 0;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
 .submit:hover {
@@ -474,7 +484,7 @@ a {
 
 .copyright {
     color: #666d89;
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 6px;
     font-weight: 400;
 }

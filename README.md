@@ -1,4 +1,4 @@
 # Singolo
 
-# Solution
+## Solution
 ## https://serjukst.github.io/singolo

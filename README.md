@@ -1,1 +1,4 @@
-# Домашнее задание: Singolo. Part 2
+# Singolo
+
+# Solution
+## https://serjukst.github.io/singolo

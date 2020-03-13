@@ -90,3 +90,23 @@ verticalPhone.addEventListener('click', function () {
         verticalPhoneDark.classList.add('visible');
     };
 });
+
+// Portfolio
+
+let tag = document.querySelectorAll('.portfolio__tag')[0];
+let projects = document.querySelectorAll('.portfolio__project')[0];
+
+
+tag.addEventListener('click', (event) => {
+    tag.querySelectorAll('a').forEach(el => el.classList.remove ('tag_active'));
+    event.target.classList.add('tag_active');
+    
+    for (let i = 0; i < projects.children.length; i++) {
+        projects.children[i].style.order = Math.floor(Math.random() * 10)
+    }
+});
+
+projects.addEventListener('click', (event) => {
+    projects.querySelectorAll('img').forEach(el => el.classList.remove ('project_bordered'));
+    event.target.classList.add('project_bordered');
+});

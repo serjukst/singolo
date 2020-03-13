@@ -101,10 +101,10 @@
                 <h2 class="portfolio__title">Portfolio</h2>
                 <p class="portfolio__text text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
                 <ul class="portfolio__tag">
-                    <li class="portfolio__tag_item"><a href="#" class="tag tag_active">All</a></li>
-                    <li class="portfolio__tag_item"><a href="#"  class="tag">Web Design</a></li>
-                    <li class="portfolio__tag_item"><a href="#" class="tag">Graphic Design</a></li>
-                    <li class="portfolio__tag_item"><a href="#" class="tag">Artwork</a></li>
+                    <li class="portfolio__tag_item"><a class="tag tag_active">All</a></li>
+                    <li class="portfolio__tag_item"><a class="tag">Web Design</a></li>
+                    <li class="portfolio__tag_item"><a class="tag">Graphic Design</a></li>
+                    <li class="portfolio__tag_item"><a class="tag">Artwork</a></li>
                 </ul>
             </div>
             <div class="portfolio__project">
@@ -175,13 +175,21 @@
             </div>
             <div class="layout-2-column">
                 <div class="contact__form">
-                    <form action method="POST">
+                    <form action>
                         <input class="contact_input" type="text" name="name" placeholder="Name (Required)" required>
                         <input class="contact_input" type="email" name="email" placeholder="Email (Required)" required>
                         <input class="contact_input" type="text" name="subject" placeholder="Subject">
                         <textarea class="contact_input textarea" name="detail" placeholder="Describe your project in detail..."></textarea>
                         <input class="contact_input submit" type="submit" value="Submit">
                     </form>
+                </div>
+                <div class="message-block hidden">
+                    <div class="message hidden">
+                        <p class="mail-send">Письмо отправлено</p>
+                        <p class="subject"></p>
+                        <p class="describe"></p>
+                        <button class="ok">ok</button>
+                    </div>
                 </div>
                 <div class="contact__content">
                     <h3 class="contact__content__title">Contact Information</h3>

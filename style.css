@@ -339,7 +339,7 @@ a {
     border-color: #dedede;
     color: #dedede;
     transition: .3s ease-in-out;
-    
+    cursor: pointer;
 }
 
 .tag_active {
@@ -368,6 +368,10 @@ a {
    width: 100%;
    height: 100%;
 } 
+
+.project_bordered {
+    border: 5px solid #f06c64;
+}
 /* <=== / Portfolio ===> */
 
 /* <=== About us ===> */
@@ -490,6 +494,31 @@ a {
     background-color:#a3494a;
     transition: .3s ease-in-out;
 }
+
+.message-block {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.message-block.hidden {
+    display: none;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+}
+
+
 
 .contact__content {
     width: 33%;

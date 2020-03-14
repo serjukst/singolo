@@ -176,20 +176,12 @@
             <div class="layout-2-column">
                 <div class="contact__form">
                     <form action>
-                        <input class="contact_input" type="text" name="name" placeholder="Name (Required)" required>
-                        <input class="contact_input" type="email" name="email" placeholder="Email (Required)" required>
-                        <input class="contact_input" type="text" name="subject" placeholder="Subject">
-                        <textarea class="contact_input textarea" name="detail" placeholder="Describe your project in detail..."></textarea>
-                        <input class="contact_input submit" type="submit" value="Submit">
+                        <input id="name" class="contact_input" type="text" name="name" placeholder="Name (Required)" required>
+                        <input id="email" class="contact_input" type="email" name="email" placeholder="Email (Required)" required>
+                        <input id="subject" class="contact_input" type="text" name="subject" placeholder="Subject">
+                        <textarea id="detail" class="contact_input textarea" name="detail" placeholder="Describe your project in detail..."></textarea>
+                        <input class="contact_input submit" id="submit-btn" type="submit" value="send">
                     </form>
-                </div>
-                <div class="message-block hidden">
-                    <div class="message hidden">
-                        <p class="mail-send">Письмо отправлено</p>
-                        <p class="subject"></p>
-                        <p class="describe"></p>
-                        <button class="ok">ok</button>
-                    </div>
                 </div>
                 <div class="contact__content">
                     <h3 class="contact__content__title">Contact Information</h3>
@@ -200,6 +192,14 @@
                         <span class="contact__item"><span class="contact-icon ico-email"></span> <a href="mailto:info@singolo.com"> info@singolo.com </a></span>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="message-block hidden" id="message-block">
+            <div class="message">
+                <p class="mail-send">Письмо отправлено</p>
+                <p id="subject-result"class="subject"></p>
+                <p id="describe-result" class="describe"></p>
+                <button class="close-btn" id="close-btn">ok</button>
             </div>
         </div>
     </section>

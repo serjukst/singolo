@@ -110,3 +110,39 @@ projects.addEventListener('click', (event) => {
     projects.querySelectorAll('img').forEach(el => el.classList.remove ('project_bordered'));
     event.target.classList.add('project_bordered');
 });
+
+// form
+
+const CLOSE_BUTTON = document.getElementById('close-btn');
+const SUBMIT_BUTTON = document.getElementById('submit-btn');
+
+SUBMIT_BUTTON.addEventListener('click', (event) => {
+    const subject = document.getElementById('subject').value.toString();
+    const detail = document.getElementById('detail').value.toString();
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    
+    if (name.checkValidity() && email.checkValidity()) {
+        if (subject) {
+            document.getElementById('subject-result').innerText = subject;
+        } else {
+            document.getElementById('subject-result').innerText = 'Без темы';
+        };
+
+        if (detail) {
+            document.getElementById('describe-result').innerText = detail;
+        } else {
+            document.getElementById('describe-result').innerText = 'Без описания';
+        } 
+
+        document.getElementById('message-block').classList.remove('hidden');
+        event.preventDefault();
+    }
+    
+});
+
+CLOSE_BUTTON.addEventListener('click', () => {
+    document.getElementById('subject-result').innerText = '';
+    document.getElementById('describe-result').innerText = '';
+    document.getElementById('message-block').classList.add('hidden');
+});

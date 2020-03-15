@@ -1,7 +1,7 @@
 // Header navigation
-const NAV = document.getElementById('nav');
+let nav = document.getElementById('nav');
 
-NAV.addEventListener('click', (event) => {
+nav.addEventListener('click', (event) => {
     NAV.querySelectorAll('a').forEach(el => el.classList.remove ('nav-link_active'));
     event.target.classList.add('nav-link_active');
 });
@@ -30,36 +30,36 @@ function showItem(direction) {
 	items[currentItem].addEventListener('animationend', function() {
 		this.classList.remove('next', direction);
 		this.classList.add('active');
-		isEnabled = true;
-    });
+        isEnabled = true;
 
-    if(items[currentItem].classList.contains('slider__item-2')) {
-        slider.classList.add('slider_colored');
-    } else {
-        slider.classList.remove('slider_colored');
-    };
+        if(items[currentItem].classList.contains('slider__item-2')) {
+            slider.classList.add('slider_colored');
+        } else {
+            slider.classList.remove('slider_colored');
+        };
+    });
 
 };
 
 function nextItem(n) {
-	hideItem('to-left');
-	changeCurrentItem(n + 1);
-	showItem('from-right');
-};
-
-function previousItem(n) {
 	hideItem('to-right');
-	changeCurrentItem(n - 1);
+	changeCurrentItem(n + 1);
 	showItem('from-left');
 };
 
-document.querySelector('.prev_link').addEventListener('click', function() {
+function previousItem(n) {
+	hideItem('to-left');
+	changeCurrentItem(n - 1);
+	showItem('from-right');
+};
+
+document.querySelector('.prev_link').addEventListener('click', () => {
 	if (isEnabled) {
 		previousItem(currentItem);
 	}
 });
 
-document.querySelector('.next_link').addEventListener('click', function() {
+document.querySelector('.next_link').addEventListener('click', () => {
 	if (isEnabled) {
 		nextItem(currentItem);
 	}
@@ -67,29 +67,27 @@ document.querySelector('.next_link').addEventListener('click', function() {
 
 //Phone 
 
-let horizontalPhone = document.querySelectorAll('.slider__horizontal-image')[0];
+let horizontalPhone = document.getElementById('slider__horizontal-image');
 let horizontalPhoneDark = horizontalPhone.children[1];
 
-horizontalPhone.addEventListener('click', function () {
-
-    if(horizontalPhoneDark.classList.contains('visible')) {
-        horizontalPhoneDark.classList.remove('visible');
-    } else {
-        horizontalPhoneDark.classList.add('visible');
-    };
-});
-
-let verticalPhone = document.querySelectorAll('.slider__vertical-image')[0];
+let verticalPhone = document.getElementById('slider__vertical-image');
 let verticalPhoneDark = verticalPhone.children[1];
 
-
-verticalPhone.addEventListener('click', function () {
-    if(verticalPhoneDark.classList.contains('visible')) {
-        verticalPhoneDark.classList.remove('visible');
-    } else {
-        verticalPhoneDark.classList.add('visible');
-    };
+horizontalPhone.addEventListener('click', () => {
+    changeIphoneDisplay(horizontalPhoneDark);
 });
+
+verticalPhone.addEventListener('click', () => {
+    changeIphoneDisplay(verticalPhoneDark);
+});
+
+const changeIphoneDisplay = (display) => {
+    if(display.classList.contains('visible')) {
+        display.classList.remove('visible');
+    } else {
+        display.classList.add('visible');
+    };
+}
 
 // Portfolio
 
@@ -98,42 +96,36 @@ let projects = document.querySelectorAll('.portfolio__project')[0];
 
 
 tag.addEventListener('click', (event) => {
-    tag.querySelectorAll('a').forEach(el => el.classList.remove ('tag_active'));
-    event.target.classList.add('tag_active');
     
-    for (let i = 0; i < projects.children.length; i++) {
-        projects.children[i].style.order = Math.floor(Math.random() * 10)
+    if (event.target.classList.contains('tag')) {
+        tag.querySelectorAll('a').forEach(el => el.classList.remove ('tag_active'));
+        event.target.classList.add('tag_active');
+
+        for (let i = 0; i < projects.children.length; i++) {
+            projects.children[i].style.order = Math.floor(Math.random() * 10)
+        }
     }
 });
 
 projects.addEventListener('click', (event) => {
-    projects.querySelectorAll('img').forEach(el => el.classList.remove ('project_bordered'));
-    event.target.classList.add('project_bordered');
+    if (event.target.classList.contains('project__item-img')) {
+        projects.querySelectorAll('img').forEach(el => el.classList.remove ('project_bordered'));
+        event.target.classList.add('project_bordered');
+    }
 });
 
 // form
 
-const CLOSE_BUTTON = document.getElementById('close-btn');
-const SUBMIT_BUTTON = document.getElementById('submit-btn');
+let closeButton = document.getElementById('close-btn');
+let submitButton = document.getElementById('submit-btn');
 
-SUBMIT_BUTTON.addEventListener('click', (event) => {
-    const subject = document.getElementById('subject').value.toString();
-    const detail = document.getElementById('detail').value.toString();
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
+submitButton.addEventListener('click', (event) => {
+    let subject = document.getElementById('subject').value.toString();
+    let detail = document.getElementById('detail').value.toString();
     
-    if (name.checkValidity() && email.checkValidity()) {
-        if (subject) {
-            document.getElementById('subject-result').innerText = subject;
-        } else {
-            document.getElementById('subject-result').innerText = 'Без темы';
-        };
-
-        if (detail) {
-            document.getElementById('describe-result').innerText = detail;
-        } else {
-            document.getElementById('describe-result').innerText = 'Без описания';
-        } 
+    if (document.getElementById('name').checkValidity() && document.getElementById('email').checkValidity()) {
+        showMessage(subject, 'subject-result');
+        showMessage(detail,'describe-result');
 
         document.getElementById('message-block').classList.remove('hidden');
         event.preventDefault();
@@ -141,7 +133,15 @@ SUBMIT_BUTTON.addEventListener('click', (event) => {
     
 });
 
-CLOSE_BUTTON.addEventListener('click', () => {
+const showMessage = (text, resultClass) => {
+    if (text) {
+        document.getElementById(resultClass).innerText = text;
+    } else {
+        document.getElementById(resultClass).innerText = 'Без темы';
+    };
+}
+
+closeButton.addEventListener('click', () => {
     document.getElementById('subject-result').innerText = '';
     document.getElementById('describe-result').innerText = '';
     document.getElementById('message-block').classList.add('hidden');

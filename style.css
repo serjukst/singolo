@@ -126,8 +126,6 @@ a {
     position: relative;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
-    top: 0;
-    left: 0;
 }
 
 .slider__wrapper {
@@ -137,12 +135,11 @@ a {
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
-    position: relative;
 }
 
 .slider__prev-btn,
 .slider__next-btn {
-    z-index: 10;
+    z-index: 20;
 }
 .prev_link:hover,
 .next_link:hover {
@@ -153,7 +150,7 @@ a {
     width: 796px;
     display: none;
     align-items: center;
-    animation: .5s linear;
+    animation: .3s ease-in-out;
     position: relative;
 } 
 
@@ -178,7 +175,6 @@ a {
 
 .next {
     position: absolute;
-    top: 0;
     width: 100%;
 }
 
@@ -253,7 +249,6 @@ a {
 
 .services {
     background-color: #f2f2f2;
-    height: 500px;
     border-bottom: 6px solid #fff;
 }
 
@@ -261,6 +256,7 @@ a {
     display: flex;
     flex-direction: column;
     color: #666d89;
+    padding-bottom: 52px;
 }
 
 .services__description__title {
@@ -312,14 +308,13 @@ a {
 
 /* <=== Portfolio ===> */
 .portfolio {
-    height: 869px;
+    padding-bottom: 74px;
     background-color: #2d303a;
     border-bottom: 6px solid #323746;
 }
 
 .portfolio__title {
     margin-bottom: 28px;
-
 }
 
 .portfolio__text {
@@ -440,7 +435,6 @@ a {
 /* <=== Contact ===> */
 
 .form {
-    height: 654px;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
 }
@@ -620,3 +614,44 @@ a {
     margin-left: 6px;
 }
 /* <=== / Footer ===> */
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .slider__vertical-image {
+        margin-left: 30px;
+    }
+
+    .slider__vertical-image img {
+        width: 180px;
+        height: 388px;
+    }
+    .slider__horizontal-image {
+        margin-right: 20px;
+    }
+
+    .slider__horizontal-image img{
+        height: 180px;
+        width: 388px;
+    }
+
+    .slider__item-2 img{
+        height: 440px;
+    }
+
+    .slider__wrapper {
+        height: 452px;
+    }
+
+    .item_image {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-us__item {
+        flex-basis: 32%;
+    }
+  }

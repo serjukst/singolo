@@ -2,7 +2,7 @@
 let nav = document.getElementById('nav');
 
 nav.addEventListener('click', (event) => {
-    NAV.querySelectorAll('a').forEach(el => el.classList.remove ('nav-link_active'));
+    nav.querySelectorAll('a').forEach(el => el.classList.remove ('nav-link_active'));
     event.target.classList.add('nav-link_active');
 });
 
@@ -128,6 +128,7 @@ submitButton.addEventListener('click', (event) => {
         showMessage(detail,'describe-result');
 
         document.getElementById('message-block').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
         event.preventDefault();
     }
     
@@ -145,4 +146,27 @@ closeButton.addEventListener('click', () => {
     document.getElementById('subject-result').innerText = '';
     document.getElementById('describe-result').innerText = '';
     document.getElementById('message-block').classList.add('hidden');
+    document.getElementById('form').reset();
+    document.body.style.overflow = '';
 });
+
+//mobile 
+
+document.querySelector('.hamburger').addEventListener('click', e => {
+    let hamburger = document.querySelector('.hamburger');
+    let logo = document.querySelector('.header__logo');
+    let mobileNav = document.querySelector('.header__navigation');
+    let overlay = document.getElementById('message-block');
+
+    if (hamburger.classList.contains('hamburger-reverse')) {
+        hamburger.classList.remove('hamburger-reverse');
+        logo.classList.remove('header__logo-hamburger');
+        mobileNav.classList.remove('header__navigation-mobile');
+        overlay.classList.add('hidden');
+    } else {
+        hamburger.classList.add('hamburger-reverse');
+        logo.classList.add('header__logo-hamburger');
+        mobileNav.classList.add('header__navigation-mobile');
+        overlay.classList.remove('hidden');
+    }
+})

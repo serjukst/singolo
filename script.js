@@ -1,11 +1,29 @@
 // Header navigation
-let nav = document.getElementById("nav");
+const nav = document.getElementById("nav");
+const links = nav.querySelectorAll("a");
 
 nav.addEventListener("click", event => {
-  nav
-    .querySelectorAll("a")
-    .forEach(el => el.classList.remove("nav-link_active"));
+  links.forEach(el => el.classList.remove("nav-link_active"));
   event.target.classList.add("nav-link_active");
+});
+
+document.addEventListener("scroll", () => {
+  const currentPos = window.scrollY;
+  const sections = document.querySelectorAll("body>*");
+
+  sections.forEach(el => {
+    if (
+      el.offsetTop - 90 <= currentPos &&
+      el.offsetTop - 90 + el.offsetHeight > currentPos
+    ) {
+      links.forEach(a => {
+        a.classList.remove("nav-link_active");
+        if (el.getAttribute("id") === a.getAttribute("href").substring(1)) {
+          a.classList.add("nav-link_active");
+        };
+      });
+    }
+  });
 });
 
 // Slider

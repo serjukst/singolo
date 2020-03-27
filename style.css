@@ -705,7 +705,7 @@ a {
     flex-basis: 32%;
   }
 
-    /* Get a Quote section  */
+  /* Get a Quote section  */
 
   form {
     margin-bottom: 45px;
@@ -713,7 +713,6 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-  
   .wrapper {
     padding-left: 30px;
     padding-right: 30px;
@@ -766,14 +765,14 @@ a {
     content: "";
     display: inline-block;
     position: absolute;
-    top: calc( 50% - 1.5px );
+    top: calc(50% - 1.5px);
     left: 0;
     background-color: #fff;
     border-radius: 5px;
     width: 100%;
     height: 2.4px;
   }
-    
+
   .hamburger-reverse {
     transform: rotate(90deg);
   }
@@ -809,7 +808,7 @@ a {
   }
 
   .header__navigation_item {
-   margin-bottom: 27px;
+    margin-bottom: 27px;
   }
 
   .header__navigation_item:not(:last-child):after {
@@ -819,11 +818,11 @@ a {
 
   .message-block {
     height: 5380px;
-    opacity: .6;
+    opacity: 0.6;
   }
 
   .nav-link {
-      font-size: 2.4rem;
+    font-size: 2.4rem;
   }
 
   .slider__wrapper {

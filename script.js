@@ -3,18 +3,22 @@ const nav = document.getElementById("nav");
 const links = nav.querySelectorAll("a");
 
 nav.addEventListener("click", event => {
-  links.forEach(el => el.classList.remove("nav-link_active"));
-  event.target.classList.add("nav-link_active");
+  if (event.target.classList.contains("nav-link")) {
+    links.forEach(el => el.classList.remove("nav-link_active"));
+    event.target.classList.add("nav-link_active");
+    if (document.body.offsetWidth < 768) { hamburgerNav() };
+  }
 });
 
 document.addEventListener("scroll", () => {
   const currentPos = window.scrollY;
   const sections = document.querySelectorAll("body>*");
+  let headerHeight = document.getElementById('header').offsetHeight - 5;
 
   sections.forEach(el => {
     if (
-      el.offsetTop - 90 <= currentPos &&
-      el.offsetTop - 90 + el.offsetHeight > currentPos
+      el.offsetTop - headerHeight <= currentPos &&
+      el.offsetTop - headerHeight + el.offsetHeight > currentPos
     ) {
       links.forEach(a => {
         a.classList.remove("nav-link_active");
@@ -40,14 +44,14 @@ function changeCurrentItem(n) {
 function hideItem(direction) {
   isEnabled = false;
   items[currentItem].classList.add(direction);
-  items[currentItem].addEventListener("animationend", function() {
+  items[currentItem].addEventListener("animationend", function () {
     this.classList.remove("active", direction);
   });
 }
 
 function showItem(direction) {
   items[currentItem].classList.add("next", direction);
-  items[currentItem].addEventListener("animationend", function() {
+  items[currentItem].addEventListener("animationend", function () {
     this.classList.remove("next", direction);
     this.classList.add("active");
     isEnabled = true;
@@ -110,17 +114,20 @@ const changeIphoneDisplay = display => {
 
 // Portfolio
 
-let tag = document.querySelectorAll(".portfolio__tag")[0];
-let projects = document.querySelectorAll(".portfolio__project")[0];
+let tag = document.querySelector(".portfolio__tag");
+let projects = document.querySelector(".portfolio__project");
 
 tag.addEventListener("click", event => {
   if (event.target.classList.contains("tag")) {
     tag.querySelectorAll("a").forEach(el => el.classList.remove("tag_active"));
     event.target.classList.add("tag_active");
 
-    for (let i = 0; i < projects.children.length; i++) {
-      projects.children[i].style.order = Math.floor(Math.random() * 10);
-    }
+    let projectImages = projects.children;
+    let firstImage = projectImages[0];
+
+    projectImages[0].remove();
+    projects.appendChild(firstImage);
+
   }
 });
 
@@ -137,6 +144,7 @@ projects.addEventListener("click", event => {
 
 let closeButton = document.getElementById("close-btn");
 let submitButton = document.getElementById("submit-btn");
+let messageBlock = document.getElementById("message-block");
 
 submitButton.addEventListener("click", event => {
   let subject = document.getElementById("subject").value.toString();
@@ -149,7 +157,8 @@ submitButton.addEventListener("click", event => {
     showMessage(subject, "subject-result");
     showMessage(detail, "describe-result");
 
-    document.getElementById("message-block").classList.remove("hidden");
+    messageBlock.classList.remove("hidden");
+    messageBlock.style.height = document.body.offsetHeight + 'px';
     document.body.style.overflow = "hidden";
     event.preventDefault();
   }
@@ -166,28 +175,45 @@ const showMessage = (text, resultClass) => {
 closeButton.addEventListener("click", () => {
   document.getElementById("subject-result").innerText = "";
   document.getElementById("describe-result").innerText = "";
-  document.getElementById("message-block").classList.add("hidden");
+  messageBlock.classList.add("hidden");
   document.getElementById("form").reset();
   document.body.style.overflow = "";
 });
 
 //mobile
 
-document.querySelector(".hamburger").addEventListener("click", e => {
+document.querySelector(".hamburger").addEventListener("click", hamburgerNav);
+
+function hamburgerNav() {
   let hamburger = document.querySelector(".hamburger");
-  let logo = document.querySelector(".header__logo");
+  let headerWrapper = document.querySelector(".header__wrapper");
   let mobileNav = document.querySelector(".header__navigation");
-  let overlay = document.getElementById("message-block");
 
   if (hamburger.classList.contains("hamburger-reverse")) {
     hamburger.classList.remove("hamburger-reverse");
-    logo.classList.remove("header__logo-hamburger");
+    headerWrapper.classList.remove("header__wrapper-hamburger");
     mobileNav.classList.remove("header__navigation-mobile");
-    overlay.classList.add("hidden");
+    mobileNav.style.height = '';
+    document.body.style.overflow = "";
+    removeOverlay();
+    
   } else {
     hamburger.classList.add("hamburger-reverse");
-    logo.classList.add("header__logo-hamburger");
+    headerWrapper.classList.add("header__wrapper-hamburger");
     mobileNav.classList.add("header__navigation-mobile");
-    overlay.classList.remove("hidden");
+    mobileNav.style.height = document.body.offsetHeight + 'px';
+    document.body.style.overflow = "hidden";
+    setOverlay()
   }
-});
+};
+
+function setOverlay () {
+  let div = document.createElement("div");
+  let header = document.getElementById('header');
+  div.classList.add('hamburger_overlay');
+  document.body.insertBefore(div, header);
+}
+
+function removeOverlay () {
+  document.querySelector('.hamburger_overlay').remove();
+}

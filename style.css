@@ -519,7 +519,6 @@ a {
   position: absolute;
   padding-bottom: 400px;
   width: 100%;
-  height: 3528px;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.9);
@@ -626,6 +625,10 @@ a {
     padding-right: 40px;
   }
 
+  .slider__wrapper {
+    padding-left: 29px;
+    padding-right: 29px;
+  }
   .slider__item-1 {
     justify-content: center;
   }
@@ -723,18 +726,23 @@ a {
   }
 
   .header__wrapper {
-    justify-content: center;
+    justify-content: space-between;
     height: 71px;
+  }
+
+  .header__wrapper::after {
+    content: "";
+    display: block;
   }
 
   .header__hamburger {
     display: block;
     position: relative;
     top: 27px;
-    right: 90px;
     width: 25px;
     height: 20px;
     z-index: 300;
+    transition: all .3s linear
   }
 
   .header__hamburger::before {
@@ -779,13 +787,12 @@ a {
 
   .header__logo {
     font-size: 2rem;
-  }
-
-  .header__logo-hamburger {
-    position: relative;
     z-index: 300;
-    text-align: left;
-    right: 62px;
+    padding: 0 28px;
+  }
+  
+  .header__wrapper-hamburger {
+    justify-content: flex-start;
   }
   .header__navigation {
     display: none;
@@ -798,7 +805,6 @@ a {
     align-items: flex-start;
     width: 278px;
     position: absolute;
-    height: 5380px;
     left: 0;
     top: 0;
     z-index: 200;
@@ -816,9 +822,13 @@ a {
     margin: 0;
   }
 
-  .message-block {
-    height: 5380px;
+  .hamburger_overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2d303a;
     opacity: 0.6;
+    z-index: 100;
   }
 
   .nav-link {
